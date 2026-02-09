@@ -1,0 +1,4 @@
+function logalert()
+{
+    alert("Czigány");
+}

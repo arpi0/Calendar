@@ -4,70 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple HTML Calendar - November 2024</title>
-    <style>
-        /* Basic page styling */
-
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f9;
-            margin: 0;
-        }
-
-        /* Calendar container */
-        .calendar {
-            width: 450px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Calendar header styling */
-        .calendar-header {
-            text-align: center;
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        /* Days of the week styling */
-        .calendar-days {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            background-color: #007bff;
-            color: white;
-        }
-
-        .calendar-days div {
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* Date cells styling */
-        .calendar-dates {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-        }
-
-        .calendar-dates div {
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        /* Highlight today */
-        .today {
-            background-color: #ffdd57;
-            font-weight: bold;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <scrip src="main.js"></script>
 </head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Calendar
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">New</a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" onclick="logalert()">Log/Reg</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
 <body>
+
     <!-- Calendar Container -->
     <div class="calendar">
         <!-- Month and Year Header -->

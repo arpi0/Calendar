@@ -29,3 +29,16 @@ else
         alert("Please sign in to make an event");
     }
 }
+
+function saveUserTimes() {
+    $.post("savesettings.php",
+    {
+        name: $("#userName").val(),
+        password: $("#password").val(),
+    },
+    function(data,status){
+        document.getElementById("saveWarningText").innerHTML = data;
+        $( "#saveWarningText" ).fadeIn(100);
+        setTimeout(function(){ $( "#saveWarningText" ).fadeOut(100); }, 3000);
+    });
+}

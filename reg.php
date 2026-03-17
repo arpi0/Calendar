@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <form method="post">
     <label>E-mail:</label><br>
-    <input type="email" name="email"><br><br>
+    <input type="text" name="nev"><br><br>
 
     <label>Jelszó:</label><br>
     <input type="password" name="jelszo"><br><br>

@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($nev === "" || $jelszo === "") {
         $error = "Ne hagyj üres mezőt!";
     } else {
-        $sql = "SELECT * FROM users WHERE nev='$email'";
+        $sql = "SELECT * FROM users WHERE username='$nev'";
         $result = $conn->query($sql);
 
         if ($result->num_rows === 0) {
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php endif; ?>
 <form method="post">
     <label>E-mail:</label><br>
-    <input type="email" name="nev"><br><br>
+    <input type="text" name="nev"><br><br>
 
     <label>Jelszó:</label><br>
     <input type="password" name="jelszo"><br><br>

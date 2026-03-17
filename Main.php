@@ -1,0 +1,80 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "calendar";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Kapcsolódási hiba: " . $conn->connect_error);
+}
+
+$success = "";
+$error = "";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Calendar - November 2024</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Calendar
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="nav-link active" aria-current="page" onclick="newdate()" href="#">New</button> 
+        </li>
+        <li class="nav-item">
+         <a  class="nav-link active" href="log.php" >Log/Reg</a>
+        </li>
+  <li class="nav-item">
+    <a class="nav-link active" class="username" aria-current="page" href="#" id="demo" <?php $result = mysqli_query($conn,"SELECT username FROM users WHERE id='1' LIMIT 1");
+    $data = mysqli_fetch_row($result);
+
+    echo $data["username"];
+    ?>
+  </a>
+  </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<body>
+
+    <!-- Calendar Container -->
+    <div class="calendar">
+        <!-- Month and Year Header -->
+        <div class="calendar-header">November 2024</div>
+
+        <!-- Days of the Week -->
+        <div class="calendar-days">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+
+        <!-- Calendar Dates -->
+        <div class="calendar-dates">
+            <!-- Blank spaces for days before the month starts on Friday -->
+            <div></div> <div></div> <div></div> <div></div> <div></div> <div class="today" id="1"><p>1</p></div> <div id="2">2</div> <div id="3">:3</div> <div id="4">4</div> <div id="5">5</div> <div id="6">6</div> <div id="7">7</div> <div id="8">8</div> <div id="9">9</div> <div id="10">10</div> <div id="11">11</div> <div id="12">12</div> <div id="13">13</div> <div id="14">14</div> <div id="15">15</div> <div id="16">16</div> <div id="17">17</div> <div id="18">18</div> <div id="19">19</div><div id="20">20</div> <div id="21">21</div> <div id="22">22</div> <div id="23">23</div> <div id="24">24</div> <div id="25">25</div> <div id="26">26</div><div id="27">27</div> <div id="28">28</div> <div id="29">29</div> <div id="30">30</div>  
+</body>
+</html>

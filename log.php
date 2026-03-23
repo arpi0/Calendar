@@ -30,12 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $user = $result->fetch_assoc();
             if ($user["jelszo"] === $jelszo) {
                 $success = "Sikeres belépés!";
-            } else {
+                 $sql = "INSERT INTO users (last_log) VALUES (CURRDATE() ) WHERE username='$nev'";
+                    $conn->query($sql);
+            }
+             else {
                 $error = "Hibás jelszó!";
             }
         }
     }
-}
+}  
 ?>
 <!DOCTYPE html>
 <html lang="hu">

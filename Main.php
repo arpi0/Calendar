@@ -42,10 +42,14 @@ $error = "";
          <a  class="nav-link active" href="log.php" >Log/Reg</a>
         </li>
   <li class="nav-item">
-    <a class="nav-link active" class="username" aria-current="page" href="#" id="demo" <?php $result = mysqli_query($conn,"SELECT username FROM users WHERE id='1' LIMIT 1");
-    $data = mysqli_fetch_row($result);
-
-    echo $data["username"];
+    <a class="nav-link active"  aria-current="page" href="#" id="demo" 
+    <?php $sql="SELECT username FROM users WHERE last_log  LIMIT 1 "; $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+     ?> <h1> <?php  echo "Welcome, " . $row["username"] . "!"; ?></h1> <?php
+    } else {
+        echo "No user found.";
+    }
     ?>
   </a>
   </li>

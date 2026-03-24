@@ -28,17 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $error = "helytelen email cím";
         } else {  
             $user = $result->fetch_assoc();
-            if ($user["jelszo"] === $jelszo) {
+            if ($user["password"] === $jelszo) {
                 $success = "Sikeres belépés!";
-                 $sql = "INSERT INTO users (last_log) VALUES (CURRDATE() ) WHERE username='$nev'";
+                $time = date("Y-m-d H:i:s");
+                 $sql2 = "INSERT INTO users set last_log='$time' where username='$nev'";
                     $conn->query($sql);
+                     $conn->query($sql2);
             }
              else {
                 $error = "Hibás jelszó!";
             }
         }
     }
-}  
+}
 ?>
 <!DOCTYPE html>
 <html lang="hu">

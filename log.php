@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($nev === "" || $jelszo === "") {
         $error = "Ne hagyj üres mezőt!";
     } else {
-        $sql = "SELECT * FROM users WHERE username='$nev'";
+        $sql = "SELECT * FROM users WHERE username LIKE 'test' ";
         $result = $conn->query($sql);
 
         if ($result->num_rows === 0) {
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($user["password"] === $jelszo) {
                 $success = "Sikeres belépés!";
                 $time = date("Y-m-d H:i:s");
-                 $sql2 = "INSERT INTO users set last_log='$time' where username='$nev'";
+                 $sql2 = "UPDATE users set last_log='$time' where username='$nev'";
                     $conn->query($sql);
                      $conn->query($sql2);
             }

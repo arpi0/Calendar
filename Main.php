@@ -43,7 +43,7 @@ $error = "";
         </li>
   <li class="nav-item">
     <a class="nav-link active"  aria-current="page" href="#" id="demo" 
-    <?php $sql="SELECT username FROM users WHERE last_log  LIMIT 1 "; $result = $conn->query($sql);
+    <?php $sql="SELECT username FROM users WHERE MAX(last_log)  LIMIT 1 "; $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
      ?> <h1> <?php  echo "Welcome, " . $row["username"] . "!"; ?></h1> <?php

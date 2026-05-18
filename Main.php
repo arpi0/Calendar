@@ -43,7 +43,7 @@ $error = "";
         </li>
   <li class="nav-item">
     <a class="nav-link active"  aria-current="page" href="#" id="demo" 
-    <?php $sql="SELECT username FROM users WHERE MAX(last_log)  LIMIT 1 "; $result = $conn->query($sql);
+    <?php $sql="SELECT username FROM users WHERE last_log=(SELECT MAX(last_log) from users)  "; $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
      ?> <h1> <?php  echo "Welcome, " . $row["username"] . "!"; ?></h1> <?php
@@ -53,6 +53,9 @@ $error = "";
     ?>
   </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link active"  aria-current="page" href="#" id="demo"  ></a>
+  </li>
       </ul>
     </div>
   </div>
@@ -60,12 +63,9 @@ $error = "";
 </header>
 <body>
 
-    <!-- Calendar Container -->
     <div class="calendar">
-        <!-- Month and Year Header -->
         <div class="calendar-header">November 2024</div>
 
-        <!-- Days of the Week -->
         <div class="calendar-days">
             <div>Sun</div>
             <div>Mon</div>

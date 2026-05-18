@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Calendar
+    <a class="navbar-brand" href="#" href="Main.php">Calendar
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </li>
   <li class="nav-item">
     <a class="nav-link active"  aria-current="page" href="#" id="demo" 
-    <?php $sql="SELECT username FROM users WHERE last_log  LIMIT 1 "; $result = $conn->query($sql);
+    <?php $sql="SELECT username FROM users WHERE last_log=(SELECT MAX(last_log) from users)  "; $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
      ?> <h1> <?php  echo "Welcome, " . $row["username"] . "!"; ?></h1> <?php
